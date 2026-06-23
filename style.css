@@ -1,0 +1,214 @@
+/* Core Styling & Background */
+body {
+    background-color: #1a3b70; /* Deep blue background */
+    color: #ffffff;
+    font-family: 'Nunito', sans-serif;
+    margin: 0;
+    min-height: 100vh;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Typography */
+.game-title {
+    font-weight: 800;
+    font-size: 3rem;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.game-subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* The Main Menu Panel */
+.menu-panel {
+    background-color: #3868a6; /* Lighter blue panel */
+    border-radius: 24px;
+    padding: 40px;
+    max-width: 700px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+/* Instructions List */
+.instructions-list {
+    line-height: 1.8;
+    font-size: 1.1rem;
+    padding-left: 20px;
+}
+
+/* Player Input Field */
+.custom-input {
+    width: 60%;
+    max-width: 300px;
+    padding: 10px 20px;
+    border-radius: 30px;
+    border: none;
+    font-size: 1rem;
+    text-align: center;
+    color: #333;
+    outline: none;
+}
+.custom-input::placeholder {
+    color: #999;
+}
+
+/* Theme Selection Buttons */
+.theme-btn {
+    background-color: #5c86bc;
+    border: none;
+    border-radius: 16px;
+    color: white;
+    padding: 15px 25px;
+    font-weight: 700;
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    width: 110px;
+}
+
+.theme-icon {
+    font-size: 2rem;
+}
+
+/* The Yellow Active Theme State */
+.theme-btn.active {
+    background-color: #ffd13b;
+    color: #333;
+    box-shadow: 0 0 0 4px rgba(255, 209, 59, 0.3);
+}
+
+/* Start Button */
+.start-btn {
+    background-color: #ffd13b;
+    color: #1a3b70;
+    border: none;
+    border-radius: 30px;
+    padding: 12px 50px;
+    font-size: 1.2rem;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: transform 0.1s;
+}
+
+.start-btn:active {
+    transform: scale(0.95);
+}
+
+/* Game Board Header */
+.header-panel {
+    background-color: #3868a6;
+    border-radius: 12px;
+    padding: 15px 30px;
+    max-width: 800px;
+}
+
+#gameCanvas {
+    background-color: #112952;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    cursor: pointer;
+}
+
+/* --- Help Button & Modal Styles --- */
+.position-relative {
+    position: relative;
+}
+
+.help-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ffd13b;
+    color: #1a3b70;
+    font-weight: 900;
+    font-size: 1.5rem;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: transform 0.2s;
+    z-index: 5;
+}
+.help-btn:hover {
+    transform: scale(1.1);
+}
+
+.rules-modal {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(26, 59, 112, 0.95);
+    border-radius: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.rules-content {
+    background-color: #2a4d7d;
+    padding: 30px;
+    border-radius: 15px;
+    position: relative;
+    width: 85%;
+    border: 2px solid #ffd13b;
+}
+
+.close-btn {
+    position: absolute;
+    top: 5px; right: 15px;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    color: #ffd13b;
+}
+/* --- Custom Leaderboard Table Styles --- */
+.custom-leaderboard-table {
+    color: #ffffff;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 2px solid #3868a6; /* Soft blue border */
+}
+
+/* Style the top header row */
+.custom-leaderboard-table thead {
+    background-color: #1a3b70; /* Darkest blue */
+    color: #ffd13b; /* Yellow text */
+    font-weight: 800;
+}
+
+/* Style the standard rows */
+.custom-leaderboard-table tbody tr {
+    background-color: #2a4d7d; /* Medium blue */
+    transition: background-color 0.2s;
+}
+
+/* Alternate row colors slightly for readability */
+.custom-leaderboard-table tbody tr:nth-of-type(even) {
+    background-color: #1e3c66; /* Slightly darker blue */
+}
+
+/* Remove default bootstrap borders and add padding */
+.custom-leaderboard-table td, 
+.custom-leaderboard-table th {
+    border: none;
+    padding: 12px;
+    vertical-align: middle;
+}
+
+/* Update the highlight color for the player's current score */
+.custom-leaderboard-table .table-active.text-warning {
+    background-color: rgba(255, 209, 59, 0.2) !important; /* Soft yellow glow */
+    color: #ffd13b !important;
+    font-weight: bold;
+    border-left: 4px solid #ffd13b;
+}

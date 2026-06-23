@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Match Challenge</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- START MENU OVERLAY -->
+    <div id="start-menu" class="container text-center mt-4">
+        <h1 class="game-title">Memory Match Challenge</h1>
+        <p class="game-subtitle">Find all matching pairs before the time runs out!</p>
+
+        <div class="menu-panel text-start mx-auto mt-4 position-relative">
+            <!-- The New ? Button -->
+            <button id="btn-help" class="help-btn">?</button>
+
+            <!-- The Rules Modal (Hidden by default) -->
+            <div id="rules-modal" class="rules-modal hidden">
+                <div class="rules-content">
+                    <span id="close-rules" class="close-btn">&times;</span>
+                    <h4 class="mb-3 text-warning fw-bold">How to play:</h4>
+                    <ol class="instructions-list">
+                        <li>Click on two cards to flip them.</li>
+                        <li>If the cards match, they stay open.</li>
+                        <li>If they do not match, they flip back.</li>
+                        <li>Complete all pairs to move to the next level.</li>
+                        <li>Each level has more cards and less time.</li>
+                    </ol>
+                </div>
+            </div>
+            
+<!-- The Leaderboard Modal (Hidden by default) -->
+            <div id="leaderboard-modal" class="rules-modal hidden">
+                <div class="rules-content text-center" style="width: 90%; max-width: 600px;">
+                    <h2 class="mb-3 text-warning fw-bold">Time's Up!</h2>
+                    <h4 class="mb-4 text-white">Top 10 Leaderboard</h4>
+                    <div class="table-responsive">
+                        <table class="table custom-leaderboard-table mb-4">
+                            <thead>
+                                <tr>
+                                    <th>Rank</th>
+                                    <th>Name</th>
+                                    <th>ID</th>
+                                    <th>Score</th>
+                                </tr>
+                            </thead>
+                            <tbody id="leaderboard-body">
+                                <!-- JavaScript will inject the top 10 rows here -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <button id="btn-play-again" class="start-btn">Play Again</button>
+                </div>
+            </div>
+
+            <h2 class="text-center mb-4">Welcome to the Game</h2>
+
+            <div class="text-center mt-4">
+                <p class="fw-bold mb-2">Player Information</p>
+                <input type="text" id="player-name" class="custom-input" placeholder="Enter your name">
+            </div>
+
+            <div class="text-center mt-4">
+                <p class="fw-bold mb-3">Choose Card Theme</p>
+                <div class="d-flex justify-content-center gap-3">
+                    <button class="theme-btn" data-theme="fruits">
+                        <div class="theme-icon">🍎</div>Fruits
+                    </button>
+                    <button class="theme-btn active" data-theme="animals">
+                        <div class="theme-icon">🐶</div>Animals
+                    </button>
+                    <button class="theme-btn" data-theme="numbers">
+                        <div class="theme-icon">🔢</div>Numbers
+                    </button>
+                </div>
+            </div>
+
+            <div class="text-center mt-5">
+                <button id="btn-start" class="start-btn">Start Game</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ACTUAL GAME UI -->
+    <div id="game-ui" class="container mt-4 hidden">
+       <div class="row mb-2 header-panel mx-auto align-items-center">
+            <div class="col-3 text-start">
+                <h4 class="m-0">Level: <span id="ui-level">1</span></h4>
+            </div>
+            <div class="col-3 text-center">
+                <h4 class="m-0 text-warning fw-bold">Time: <span id="ui-timer">0</span>s</h4>
+            </div>
+            <div class="col-3 text-center">
+                <!-- TIME BOOST BUTTON -->
+                <button id="btn-time-boost" class="btn btn-sm btn-success fw-bold rounded-pill px-3 shadow-sm">
+                    ⏱️ +5 Sec (<span id="ui-boost">1</span>)
+                </button>
+            </div>
+            <div class="col-3 text-end">
+                <h4 class="m-0">Score: <span id="ui-score">0</span></h4>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 d-flex justify-content-center">
+                <canvas id="gameCanvas" width="800" height="600"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/Card.js"></script>
+    <script src="js/CardGrid.js"></script>
+    <script src="js/GameManager.js"></script>
+    <script src="js/DisplayRenderer.js"></script>
+    <script src="js/SignalFilter.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
